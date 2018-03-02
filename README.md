@@ -21,4 +21,4 @@ Brings back avatars
 Manual refresh of entity list with IDs
 
 -1
-Exit
+Exit 
