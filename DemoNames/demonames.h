@@ -2,6 +2,7 @@
 
 #include <string>
 #include <map>
+#include "sdk.h"
 
 namespace demonames {
 	void list();

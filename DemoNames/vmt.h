@@ -31,12 +31,10 @@ public:
 	{
 		return bInit(*pBase);
 	}
-
 	void UnHook() 
 	{
 		if (m_ppdwClassBase) *m_ppdwClassBase = m_pdwOldVMT;
 	}
-
 	DWORD dwHookMethod(DWORD dwNewFunc, unsigned int ind) 
 	{
 		if (m_pdwNewVMT && m_pdwOldVMT && ind <= m_dwVMTSize && ind >= 0) {
@@ -45,7 +43,6 @@ public:
 		}
 		return 0;
 	}
-
 private:
 	DWORD getCnt(PDWORD pv) 
 	{

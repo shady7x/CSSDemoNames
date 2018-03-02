@@ -27,6 +27,9 @@
     <ClInclude Include="demonames.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="console.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">

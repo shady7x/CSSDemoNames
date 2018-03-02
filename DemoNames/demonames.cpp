@@ -1,4 +1,3 @@
-#include "sdk.h"
 #include "demonames.h"
 
 std::map <int, std::string> demonames::table;
@@ -6,8 +5,7 @@ bool demonames::hide_avatars;
 
 void demonames::list()
 {
-	do
-	{
+	do {
 		system("cls");
 		std::cout << "ID     Name\n";
 		for (int i = 0; i < 12; ++i)
@@ -48,28 +46,42 @@ bool demonames::continue_input()
 	if (cmd == "->")
 	{
 		if (id == 1111)
+		{
 			return hide_avatars = true;
+		}
 		std::string newname;
 		std::getline(std::cin, newname);
 		newname.erase(0, 1);
 		if (id == 111)
-			for (int i = 1; i <= 65; ++i) // new players may join thats why we use max constant
+		{
+			for (int i = 1; i <= 65; ++i) // new clients may join thats why we use max constant
+			{
 				table[i] = newname;
-		else 
+			}
+		}
+		else
+		{
 			table[id] = newname;
+		}
 	}
 
 	if (cmd == "<-")
 	{
 		if (id == 1111)
+		{
 			return hide_avatars = false, true;
+		}
 		else if (id == 111)
+		{
 			table.clear();
+		}
 		else for (std::map<int, std::string>::iterator it = table.begin(); it != table.end(); )
+		{
 			if (it->first == id)
 				it = table.erase(it);
 			else
 				++it;
+		}
 	}
 
 	return true;

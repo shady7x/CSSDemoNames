@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="console.h" />
     <ClInclude Include="demonames.h" />
     <ClInclude Include="getvfunc.h" />
     <ClInclude Include="sdk.h" />
