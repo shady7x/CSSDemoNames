@@ -2,15 +2,23 @@
 
 Commands:
 
-0                   Refresh player list to get current entity IDs
+5 -> TEST
+Player's name with id = 5 will be set to TEST 
+5 <- 
+Brings back original name of that player
 
-x -> yourstring     Sets yourstring as a nickname for entity x
-x <-                Brings back original nickname of entity x
+111 -> TEST
+Everyone's name will be set to TEST
+111 <-
+Brings back original name for everyone
 
-111 -> yourstring   Sets yourstring as a nickname for everyone
-111 <-              Reverses nickname changes 
+1111 -> 
+Hides everyone's avatar 
+1111 <-
+Brings back avatars
 
-1111 ->             Hides everyones avatars 
-1111 <-             Reverses avatars changes 
+0 
+Manual refresh of entity list with IDs
 
--1                  Exit 
+-1
+Exit
