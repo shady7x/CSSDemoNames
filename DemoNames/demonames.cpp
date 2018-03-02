@@ -15,7 +15,7 @@ void demonames::list()
 		for (int i = 1; i <= g_pEngine->GetMaxClients(); ++i)
 		{
 			player_info_s info;
-			if (g_pEntList->GetClientEntity(i) == nullptr || !g_pEngine->GetPlayerInfo(i, &info))
+			if (!g_pEntList->GetClientEntity(i) || !g_pEngine->GetPlayerInfo(i, &info))
 				continue;
 
 			std::cout << i;
@@ -35,10 +35,14 @@ bool demonames::continue_input()
 {
 	int id;
 	std::cin >> id;
-	if (id < 0) // exit
+	if (id < 0)
+	{
 		return false;
-	if (!id) // manual refresh
+	}
+	if (!id)
+	{
 		return true;
+	}
 
 	std::string cmd;
 	std::cin >> cmd;
@@ -55,9 +59,7 @@ bool demonames::continue_input()
 		if (id == 111)
 		{
 			for (int i = 1; i <= 65; ++i) // new clients may join thats why we use max constant
-			{
 				table[i] = newname;
-			}
 		}
 		else
 		{

@@ -7,7 +7,7 @@
 #include <iostream>
 
 typedef void* (__cdecl* CreateInterface_t)(const char*, int*);
-typedef void* (*CreateInterfaceFn)(const char *pName, int *pReturnCode);
+typedef void* (*CreateInterfaceFn)(const char* pName, int* pReturnCode);
 
 typedef struct player_info_s
 {
@@ -27,12 +27,12 @@ class CEngine
 public:
 	bool GetPlayerInfo(int ent_id, player_info_t* info)
 	{
-		typedef bool(__thiscall* fn)(PVOID, int, player_info_t*);
+		typedef bool(__thiscall* fn)(void*, int, player_info_t*);
 		return getvfunc<fn>(this, 8)(this, ent_id, info);
 	}
 	int GetMaxClients()
 	{
-		typedef int(__thiscall* fn)(PVOID);
+		typedef int(__thiscall* fn)(void*);
 		return getvfunc<fn>(this, 21)(this);
 	}
 };
@@ -42,7 +42,7 @@ class CEntList
 public:
 	void* GetClientEntity(int ent_id)
 	{
-		typedef void* (__thiscall* fn)(PVOID, int);
+		typedef void* (__thiscall* fn)(void*, int);
 		return getvfunc<fn>(this, 3)(this, ent_id);
 	}
 };

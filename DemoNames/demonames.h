@@ -4,9 +4,10 @@
 #include <map>
 #include "sdk.h"
 
-namespace demonames {
+namespace demonames 
+{
 	void list();
 	bool continue_input();
 	extern std::map <int, std::string> table;
 	extern bool hide_avatars;
-};
+}

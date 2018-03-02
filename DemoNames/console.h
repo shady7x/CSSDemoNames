@@ -20,8 +20,8 @@ public:
 	void destroy()
 	{
 		system("cls");
-		std::cout << "close me!";
 		EnableMenuItem(GetSystemMenu(GetConsoleWindow(), 0), SC_CLOSE, MF_ENABLED);
+		std::cout << "can close me now";
 		FreeConsole();
 	}
 } console;
