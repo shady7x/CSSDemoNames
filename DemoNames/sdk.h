@@ -22,8 +22,6 @@ typedef struct player_info_s
 	unsigned char	filesDownloaded;
 } player_info_t;
 
-class CBaseEntity;
-
 class CEngine
 {
 public:

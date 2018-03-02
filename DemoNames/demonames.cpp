@@ -1,7 +1,7 @@
 #include "sdk.h"
 #include "demonames.h"
 
-std::map <int, std::string> nametable;
+std::map <int, std::string> demonames::table;
 bool demonames::hide_avatars;
 
 void demonames::list()
@@ -13,6 +13,7 @@ void demonames::list()
 		for (int i = 0; i < 12; ++i)
 			std::cout << '-';
 		std::cout << std::endl;
+
 		for (int i = 1; i <= g_pEngine->GetMaxClients(); ++i)
 		{
 			player_info_s info;
@@ -24,9 +25,11 @@ void demonames::list()
 				std::cout << ' ';
 			std::cout << info.name << std::endl;
 		}
+
 		for (int i = 0; i < 12; ++i)
 			std::cout << '-';
 		std::cout << std::endl;
+
 	} while (continue_input());
 }
 
@@ -51,9 +54,9 @@ bool demonames::continue_input()
 		newname.erase(0, 1);
 		if (id == 111)
 			for (int i = 1; i <= 65; ++i) // new players may join thats why we use max constant
-				nametable[i] = newname;
+				table[i] = newname;
 		else 
-			nametable[id] = newname;
+			table[id] = newname;
 	}
 
 	if (cmd == "<-")
@@ -61,10 +64,10 @@ bool demonames::continue_input()
 		if (id == 1111)
 			return hide_avatars = false, true;
 		else if (id == 111)
-			nametable.clear();
-		else for (std::map<int, std::string>::iterator it = nametable.begin(); it != nametable.end(); )
+			table.clear();
+		else for (std::map<int, std::string>::iterator it = table.begin(); it != table.end(); )
 			if (it->first == id)
-				it = nametable.erase(it);
+				it = table.erase(it);
 			else
 				++it;
 	}
