@@ -1,4 +1,4 @@
-# DemoNames
+# DemoNames [POV/STV/LIVE]
 
 Commands:
 
