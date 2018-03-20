@@ -22,11 +22,19 @@ Commands:
 
 1111 -> 
 
-[Hides everyone's avatar ]
+[Hides everyone's avatar]
 
 1111 <-
 
-[Brings back avatars]
+[Brings back original name for everyone]
+
+2222 -> 
+
+[Hides everyone's clantag]
+
+2222 <-
+
+[Brings back clantags]
 
 0 
 
