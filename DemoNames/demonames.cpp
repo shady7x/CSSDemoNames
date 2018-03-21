@@ -6,17 +6,15 @@ bool demonames::hide_clantags;
 
 void demonames::clean_player_resources(int index)
 {
-	CBaseEntity* resources = nullptr;
 	for (int i = 1; i <= g_pEntList->GetHighestEntityIndex(); ++i)
 	{
-		CBaseEntity* entity = g_pEntList->GetClientEntity(i);
-		if (entity == nullptr || entity->GetClientClass()->GetClassID() != CCSPlayerResource)
-			continue;
-		resources = entity;
-		break;
+		CBaseEntity* resources = g_pEntList->GetClientEntity(i);
+		if (resources != nullptr && resources->GetClientClass()->GetClassID() == CCSPlayerResource)
+		{
+			strcpy(reinterpret_cast<char*>((uintptr_t)resources + 0xED8 + index * 16), "");
+			return;
+		}
 	}
-	if (resources)
-		strcpy(reinterpret_cast<char*>((uintptr_t)resources + 0xED8 + index * 16), "");
 }
 
 void demonames::list()
@@ -93,11 +91,11 @@ bool demonames::continue_input()
 		{
 			return hide_avatars = false, true;
 		}
-		else if (id == 2222)
+		if (id == 2222)
 		{
 			return hide_clantags = false, true;  
 		}
-		else if (id == 111)
+		if (id == 111)
 		{
 			table.clear();
 		}
